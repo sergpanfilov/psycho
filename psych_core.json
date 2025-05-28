@@ -1,0 +1,161 @@
+{
+  "meta": {
+    "lang": [
+      "ru",
+      "en",
+      "pl"
+    ],
+    "version": "0.1",
+    "author": "psych_core_builder",
+    "created_at": "2025-05-28T12:36:27.758439",
+    "source": "manual_mvp_template"
+  },
+  "disorders": [
+    {
+      "id": "dis_anx",
+      "title": {
+        "ru": "Тревожное расстройство",
+        "en": "Anxiety disorder",
+        "pl": "Zaburzenie lękowe"
+      },
+      "description": {
+        "ru": "Хроническое беспокойство, тревожность без явной причины.",
+        "en": "Chronic worry and anxiety without clear cause.",
+        "pl": "Przewlekły niepokój bez wyraźnej przyczyny."
+      },
+      "symptoms": [
+        "sym_restlessness",
+        "sym_fear"
+      ],
+      "comorbid": [
+        "dis_depr"
+      ],
+      "scale_refs": [
+        "sc_gad7"
+      ],
+      "therapies": [
+        "ther_cbt"
+      ],
+      "sociocultural_notes": {
+        "ru": "Уровень стигматизации тревожных состояний в постсоветском обществе высок.",
+        "en": "Anxiety is often stigmatized in post-Soviet cultures.",
+        "pl": "Lęk bywa stygmatyzowany w kulturach postsowieckich."
+      },
+      "created_by": "core_team",
+      "created_at": "2025-05-28T12:36:27.758439",
+      "source": "DSM-5, internal model",
+      "comment": ""
+    }
+  ],
+  "symptoms": [
+    {
+      "id": "sym_restlessness",
+      "title": {
+        "ru": "Беспокойство",
+        "en": "Restlessness",
+        "pl": "Niepokój"
+      },
+      "description": {
+        "ru": "Чувство внутреннего напряжения и невозможности расслабиться.",
+        "en": "Feeling tense and unable to relax.",
+        "pl": "Uczucie napięcia i niemożności odprężenia."
+      },
+      "weight": 0.7,
+      "masking": [
+        {
+          "ru": "Скрывается под гиперактивностью",
+          "en": "Masked as hyperactivity",
+          "pl": "Ukrywane jako nadaktywność"
+        }
+      ],
+      "conflicts": [],
+      "activation_context": {
+        "ru": "Вызвано ожиданием или стрессом",
+        "en": "Triggered by anticipation or stress",
+        "pl": "Wywołane oczekiwaniem lub stresem"
+      },
+      "trust_level": "high",
+      "created_by": "core_team",
+      "created_at": "2025-05-28T12:36:27.758439",
+      "source": "clinical_guides",
+      "comment": ""
+    }
+  ],
+  "therapies": [
+    {
+      "id": "ther_cbt",
+      "title": {
+        "ru": "Когнитивно-поведенческая терапия",
+        "en": "Cognitive Behavioral Therapy",
+        "pl": "Terapia poznawczo-behawioralna"
+      },
+      "description": {
+        "ru": "Методика, направленная на осознание и изменение паттернов мышления.",
+        "en": "Technique to identify and change thinking patterns.",
+        "pl": "Technika mająca na celu zmianę schematów myślenia."
+      },
+      "techniques": [
+        "exposure",
+        "cognitive_restructuring"
+      ],
+      "resistance_patterns": [
+        "avoidance"
+      ],
+      "created_by": "core_team",
+      "created_at": "2025-05-28T12:36:27.758439",
+      "source": "APA",
+      "comment": ""
+    }
+  ],
+  "scales": [
+    {
+      "id": "sc_gad7",
+      "name": {
+        "ru": "Шкала GAD-7",
+        "en": "GAD-7 Scale",
+        "pl": "Skala GAD-7"
+      },
+      "items": [
+        "worry",
+        "sleep_issues",
+        "tension"
+      ],
+      "thresholds": {
+        "mild": 5,
+        "moderate": 10,
+        "severe": 15
+      },
+      "disorders_mapped": [
+        "dis_anx"
+      ]
+    }
+  ],
+  "modifiers": [
+    {
+      "id": "mod_male_silence",
+      "type": "gender_culture",
+      "description": {
+        "ru": "Мужчины склонны не сообщать о плаче или страхах из-за социокультурных норм.",
+        "en": "Men tend not to report crying or fear due to sociocultural expectations.",
+        "pl": "Mężczyźni rzadko zgłaszają płacz lub lęki z powodu norm kulturowych."
+      },
+      "impact_on_diagnosis": "masking_symptoms"
+    }
+  ],
+  "graph_edges": [
+    {
+      "from": "dis_anx",
+      "to": "sym_restlessness",
+      "type": "has_symptom",
+      "weight": 0.8,
+      "note": ""
+    },
+    {
+      "from": "dis_anx",
+      "to": "ther_cbt",
+      "type": "has_recommended_therapy",
+      "weight": 1.0,
+      "note": ""
+    }
+  ]
+}
