@@ -1,0 +1,143 @@
+{
+  "meta": {
+    "version": "1.0",
+    "description": "Единая структура данных для слоев базы DSM-X. Поддерживает мультиязычие, источники, журнал изменений, связи и модификаторы.",
+    "created_at": "2025-05-29T08:33:06.289853"
+  },
+  "layers": {
+    "disorders": {
+      "id": "string (обязательный)",
+      "title": {
+        "ru": "string",
+        "en": "string",
+        "pl": "string"
+      },
+      "description": {
+        "ru": "string",
+        "en": "string",
+        "pl": "string"
+      },
+      "source": "string (ссылка или публикация)",
+      "trust_level": "integer (0–10)",
+      "sociocultural_notes": {
+        "ru": "string",
+        "en": "string",
+        "pl": "string"
+      },
+      "activation_context": "string",
+      "masking": {
+        "presentations": [
+          "symptom_id"
+        ],
+        "cultural_variants": {
+          "region": "description"
+        }
+      },
+      "graph_edges": [
+        {
+          "target_id": "string",
+          "type": "string (например, symptom_of | comorbid_with)"
+        }
+      ],
+      "created_by": "user_id",
+      "created_at": "timestamp",
+      "updated_at": "timestamp",
+      "edit_log": [
+        {
+          "by": "user_id",
+          "at": "timestamp",
+          "change": "описание правки"
+        }
+      ]
+    },
+    "symptoms": {
+      "id": "string",
+      "title": {
+        "ru": "string",
+        "en": "string",
+        "pl": "string"
+      },
+      "description": {
+        "ru": "string",
+        "en": "string",
+        "pl": "string"
+      },
+      "source": "string",
+      "graph_edges": [
+        {
+          "target_id": "string",
+          "type": "string"
+        }
+      ],
+      "created_by": "user_id",
+      "created_at": "timestamp",
+      "updated_at": "timestamp",
+      "edit_log": [
+        {
+          "by": "user_id",
+          "at": "timestamp",
+          "change": "описание правки"
+        }
+      ]
+    },
+    "therapies": {
+      "id": "string",
+      "title": {
+        "ru": "string",
+        "en": "string",
+        "pl": "string"
+      },
+      "description": {
+        "ru": "string",
+        "en": "string",
+        "pl": "string"
+      },
+      "source": "string",
+      "modality": "CBT | ACT | Medication | Other",
+      "applicable_disorders": [
+        "disorder_id"
+      ],
+      "created_by": "user_id",
+      "created_at": "timestamp",
+      "updated_at": "timestamp",
+      "edit_log": [
+        {
+          "by": "user_id",
+          "at": "timestamp",
+          "change": "описание правки"
+        }
+      ]
+    },
+    "modifiers": {
+      "id": "string",
+      "type": "string (culture | gender | age | trauma)",
+      "description": {
+        "ru": "string",
+        "en": "string",
+        "pl": "string"
+      }
+    },
+    "scales": {
+      "id": "string",
+      "name": {
+        "ru": "string",
+        "en": "string",
+        "pl": "string"
+      },
+      "description": {
+        "ru": "string",
+        "en": "string",
+        "pl": "string"
+      },
+      "used_for": [
+        "disorder_id"
+      ]
+    },
+    "graph_edges": {
+      "source_id": "string",
+      "target_id": "string",
+      "type": "string (symptom_of | treated_by | comorbid_with | modified_by)",
+      "strength": "0–1 float (optional)"
+    }
+  }
+}
